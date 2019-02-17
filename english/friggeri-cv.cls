@@ -35,9 +35,13 @@
   \colorlet{blue}{darkgray}
   \colorlet{filltitle}{white}
   \colorlet{title}{darkgray}
+  \colorlet{header}{gray}
+  \colorlet{fillheader}{white}
 \else
   \colorlet{filltitle}{darkgray}
   \colorlet{title}{white}
+  \colorlet{header}{white}
+  \colorlet{fillheader}{gray}
 \fi
 \colorlet{textcolor}{darkgray}
 \colorlet{headercolor}{darkgray}
@@ -56,6 +60,8 @@
 BoldFont=Roboto Bold, Numbers=OldStyle]{Roboto}
 \setmonofont[Mapping=tex-text, ItalicFont=Roboto Italic, 
 BoldFont=Roboto Bold]{Roboto}
+\newfontfamily\thinfont[]{Roboto Light}
+\newfontfamily\headingfont[]{Roboto Condensed Bold}
 
 %%%%%%%%%%
 % Header %
@@ -71,12 +77,13 @@ BoldFont=Roboto Bold]{Roboto}
 
 \newcommand{\header}[2]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=filltitle, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, 
+    minimum height=4cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
-      \fontsize{24pt}{36pt}\color{title}\scshape #1%
+      \fontsize{24pt}{36pt}\color{header}{\headingfont #1}%
     };
     \node [anchor=north] at (name.south) {%
-      \fontsize{14pt}{24pt}\color{title}%
+      \fontsize{14pt}{24pt}\color{header}%
       \titlefont #2%
     };
   \end{tikzpicture}
@@ -98,7 +105,8 @@ BoldFont=Roboto Bold]{Roboto}
         red\or%
         orange\or%
         green\or%
-        purple\else%
+        purple\or%
+        wine\else%
         headercolor\fi%
     } #1#2#3%
   }%
