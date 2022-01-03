@@ -61,7 +61,7 @@ BoldFont=Roboto Bold, Numbers=OldStyle]{Roboto}
 \setmonofont[Mapping=tex-text, ItalicFont=Roboto Italic, 
 BoldFont=Roboto Bold]{Roboto}
 \newfontfamily\thinfont[]{Roboto Light}
-\newfontfamily\headingfont[]{Roboto Condensed Bold}
+% \newfontfamily\headingfont[]{Roboto Condensed Bold}
 
 %%%%%%%%%%
 % Header %
